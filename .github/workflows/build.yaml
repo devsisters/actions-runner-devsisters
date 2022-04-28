@@ -44,6 +44,7 @@ jobs:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
           file: Dockerfile
+          push: ${{ github.ref == 'refs/heads/main' }}
           tags:
             ghcr.io/${{ github.repository }}:latest
           cache-from: type=gha
